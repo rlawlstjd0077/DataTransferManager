@@ -1,0 +1,51 @@
+{
+  "dataDir": "data",
+  "transfer": [
+    {
+      "sourceDir": "transmit/A",
+      "dataType": "GK2A_MISSION_EVENT",
+      "target": [
+        {
+          "title": "ASERVER",
+          "protocol": "FTPS",
+          "ip": "192.xxx.xxx.xxx",
+          "port": 23,
+          "tempDir": "interface/tmp",
+          "rootDir": "interface/F",
+          "user": "admin1",
+          "password": 1234
+        },
+        {
+          "title": "BSERVER",
+          "protocol": "FTPS",
+          "ip": "192.xxx.xxx.xxx",
+          "port": 23,
+          "tempDir": "interface/tmp",
+          "rootDir": "interface/F",
+          "user": "admin2",
+          "password": 1234
+        }
+      ]
+    }
+  ],
+  "receive": [
+    {
+      "sourceDir": "receive/G",
+      "dataType": "TARGET_STAR_LIST",
+      "target": [
+        {
+          "title": "CSERVER",
+          "protocol": "SMB",
+          "tempDir": "interface/tmp",
+          "rootDir": "interface/N"
+        },
+        {
+          "title": "DSERVER",
+          "protocol": "SMB",
+          "tempDir": "interface/tmp",
+          "rootDir": "interface/N"
+        }
+      ]
+    }
+  ]
+}

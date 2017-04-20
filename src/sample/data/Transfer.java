@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 public class Transfer {
     private String sourceDir;
+    private String dataType;
     private ArrayList<Target> target = new ArrayList<>();
 
     public String getSourceDir() {

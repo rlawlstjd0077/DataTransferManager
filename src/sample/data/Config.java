@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Created by dsm_025 on 2017-04-16.
  */
 public class Config {
+    public static Config configFile;
     private String dataDir;
     private ArrayList<Transfer> transfer = new ArrayList<>();
     private ArrayList<Receive> receive = new ArrayList<>();
