@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Priority?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<fx:root xmlns="http://javafx.com/javafx"
+         type="BorderPane" stylesheets="@config.css"
+         xmlns:fx="http://javafx.com/fxml"
+         prefHeight="400.0" prefWidth="600.0">
+    <center>
+        <TreeView fx:id="configTree">
+
+        </TreeView>
+    </center>
+    <bottom>
+        <HBox>
+            <HBox>
+                <padding>
+                    <Insets left="10" top="10" bottom="10"/>
+                </padding>
+                <JFXButton text="Add" prefWidth="80" styleClass="handle-button" fx:id="addBtn" />
+                <Label prefWidth="20"/>
+                <JFXButton text="Remove" prefWidth="80" styleClass="handle-button" fx:id="removeBtn" />
+                <Label prefWidth="20"/>
+                <JFXButton text="Modify" prefWidth="80" styleClass="handle-button" fx:id="modifyBtn" />
+                <HBox.hgrow>
+                    <Priority fx:constant="ALWAYS"/>
+                </HBox.hgrow>
+            </HBox>
+            <HBox>
+                <padding>
+                    <Insets right="10" top="10" bottom="10"/>
+                </padding>
+                <JFXButton text="Save" prefWidth="100" styleClass="choice-button" fx:id="saveBtn"/>
+                <Label prefWidth="20"/>
+                <JFXButton text="Cancel" prefWidth="100" styleClass="choice-button" fx:id="cancelBtn"/>
+            </HBox>
+        </HBox>
+    </bottom>
+</fx:root>

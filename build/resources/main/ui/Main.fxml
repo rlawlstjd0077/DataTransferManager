@@ -1,0 +1,23 @@
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import com.jfoenix.controls.JFXButton?>
+<BorderPane fx:controller="ui.MainController" stylesheets="@main.css"
+            xmlns:fx="http://javafx.com/fxml">
+    <center>
+        <HBox>
+            <HBox alignment="CENTER">
+                <JFXButton text="Config View" fx:id="configViewButton" styleClass="button-raised"/>
+                <HBox.hgrow>
+                    <Priority fx:constant="ALWAYS"/>
+                </HBox.hgrow>
+            </HBox>
+            <HBox alignment="CENTER">
+                <JFXButton text="Setting View" fx:id="settingViewButton" styleClass="button-raised"/>
+                <HBox.hgrow>
+                    <Priority fx:constant="ALWAYS"/>
+                </HBox.hgrow>
+            </HBox>
+        </HBox>
+    </center>
+</BorderPane>

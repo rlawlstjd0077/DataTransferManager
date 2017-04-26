@@ -1,0 +1,15 @@
+.root{
+    -fx-font-family: "Roboto";
+    -fx-font-weight: 700;
+}
+.button-raised{
+    -fx-padding: 0.7em 0.57em;
+    -fx-font-size: 14px;
+    -jfx-button-type: RAISED;
+    -fx-background-color: #4CAF50;
+    -fx-pref-width: 150;
+    -fx-text-fill: WHITE;
+}
+.button-raised:hover{
+    -fx-background-color: rgb(0,0,204);
+}

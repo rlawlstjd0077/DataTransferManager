@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<fx:root xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml" stylesheets="@config.css"
+         prefWidth="250.0" prefHeight="100.0" type="BorderPane" >
+    <center>
+        <HBox alignment="CENTER">
+            <JFXButton text="FTPS" styleClass="option-button" prefHeight="30" prefWidth="90" fx:id="FTPSButton"/>
+            <Label prefWidth="40"/>
+            <JFXButton text="SMB" styleClass="option-button" prefHeight="30" prefWidth="90" fx:id="SMBButton"/>
+        </HBox>
+    </center>
+</fx:root>
