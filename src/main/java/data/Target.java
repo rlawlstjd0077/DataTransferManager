@@ -1,7 +1,7 @@
 package data;
 
 /**
- * Created by dsm_025 on 2017-04-16.
+ * T
  */
 public class Target {
     private String title;

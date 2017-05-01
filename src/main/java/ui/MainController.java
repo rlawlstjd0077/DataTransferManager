@@ -20,17 +20,23 @@ import ui.config.ConfigController;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Main Page의 컨트롤러
+ */
 public class MainController implements Initializable {
     @FXML
     private Button configViewButton;
     @FXML
     private Button settingViewButton;
+
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+    private ThreadGroup observerGroup;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         configViewButton.setOnMouseClicked(event -> handleButton(event));
         settingViewButton.setOnMouseClicked(event -> handleButton(event));
+        observerGroup = new ThreadGroup("observerGroup");
         refresh();
     }
 
@@ -66,20 +72,23 @@ public class MainController implements Initializable {
     }
 
     private void traceFolder(){
+        observerGroup.interrupt();
+
         Config config = Config.configFile;
+        String folderPath;
         for(Transfer transfer : config.getTransfer()){
-            String folderPath;
-            if((folderPath = WatchedList.findEqualFolder(transfer.getSourceDir(), true)) != null){
+            if((folderPath = WatchedList.findEqualFolder(transfer.getSourceDir(), true)) == null){
                 folderPath = WatchedList.addToTrasmitFolder(transfer.getSourceDir());
             }
-            Thread thread = new Thread(new FolderObserver(folderPath, true));
+            Thread thread = new Thread(observerGroup, new FolderObserver(folderPath, true));
+            thread.start();
         }
         for(Receive receive : config.getReceive()){
-            String folderPath;
-            if((folderPath = WatchedList.findEqualFolder(receive.getSourceDir(), true)) != null){
+            if((folderPath = WatchedList.findEqualFolder(receive.getSourceDir(), true)) == null){
                 folderPath = WatchedList.addToReceiveFolder(receive.getSourceDir());
             }
-            Thread thread = new Thread(new FolderObserver(folderPath, false));
+            Thread thread = new Thread(observerGroup, new FolderObserver(folderPath, false));
+            thread.start();
         }
     }
 }

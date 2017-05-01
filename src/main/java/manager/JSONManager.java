@@ -6,7 +6,7 @@ import data.Config;
 import java.io.*;
 
 /**
- * Created by dsm_025 on 2017-04-20.
+ * JSON 관련 처리 기능을 담당하는 클래스
  */
 public class JSONManager {
     public static String parseJsonFile() {

@@ -67,6 +67,9 @@ public enum DataType {
     L1A_INTERMEDIATE_RESULT(""),
     IMAGE_PRODUCT("");
 
+    public String getKeyword() {
+        return keyword;
+    }
 
     private String keyword;
 

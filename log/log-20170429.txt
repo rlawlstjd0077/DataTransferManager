@@ -1,0 +1,5 @@
+360  [JavaFX Application Thread] DEBUG ui.MainController - Config File Refresh
+347  [JavaFX Application Thread] DEBUG ui.MainController - Config File Refresh
+4037 [JavaFX Application Thread] DEBUG ui.MainController - Config File Refresh
+23993 [JavaFX Application Thread] DEBUG ui.MainController - Config File Refresh
+12468 [JavaFX Application Thread] DEBUG ui.MainController - Config File Refresh

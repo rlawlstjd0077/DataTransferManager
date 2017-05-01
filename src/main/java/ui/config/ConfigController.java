@@ -1,8 +1,6 @@
 package ui.config;
 
-import com.google.gson.Gson;
 import com.jfoenix.controls.JFXButton;
-import com.sun.webkit.dom.RectImpl;
 import data.Config;
 import data.Receive;
 import data.Target;
@@ -18,7 +16,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import manager.JSONManager;
-import sun.reflect.generics.tree.Tree;
 import ui.UiUtil;
 
 import java.io.IOException;
@@ -29,7 +26,7 @@ import static ui.config.ConfigController.Role.ADDABLE;
 import static ui.config.ConfigController.Role.REMOVEABLE;
 
 /**
- * Created by dsm_025 on 2017-04-23.
+ * Config 페이지의 컨트롤러
  */
 public class ConfigController extends BorderPane{
     @FXML
@@ -122,7 +119,7 @@ public class ConfigController extends BorderPane{
                 removeContent(getCurrentSelectedItem());
                 break;
             case "modifyBtn":
-                InputController controller = new InputController();
+                ModifyController controller = new ModifyController();
                 Stage newStage  = settingNewStage(new Scene(controller), "Input");
                 newStage.setOnHidden(event1 -> {
                     if(controller.isSuccessInput()){

@@ -3,7 +3,7 @@ package data;
 import java.util.ArrayList;
 
 /**
- * Created by dsm_025 on 2017-04-16.
+ * Config 파일 클래스
  */
 public class Config {
     public static Config configFile;

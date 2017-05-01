@@ -15,7 +15,7 @@ import java.io.IOException;
 /**
  * Created by dsm_025 on 2017-04-24.
  */
-public class InputController extends BorderPane{
+public class ModifyController extends BorderPane{
     @FXML
     private JFXTextField inputField;
     @FXML
@@ -26,7 +26,7 @@ public class InputController extends BorderPane{
     private boolean successInput;
 
 
-    public InputController () {
+    public ModifyController() {
         try {
             UiUtil.loadFxml(this);
         } catch (IOException e) {

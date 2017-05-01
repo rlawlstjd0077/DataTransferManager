@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
- * Created by dsm_025 on 2017-04-24.
+ * Config 파일의 TreeItem 들의 데이터 타입
  */
 class ConfigContent {
     private final SimpleStringProperty tag;

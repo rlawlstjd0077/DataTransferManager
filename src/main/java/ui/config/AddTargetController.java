@@ -13,7 +13,7 @@ import ui.UiUtil;
 import java.io.IOException;
 
 /**
- * Created by dsm_025 on 2017-04-25.
+ * Target을 추가 하는 경우 사용되는 컨트롤러
  */
 public class AddTargetController extends BorderPane {
     @FXML

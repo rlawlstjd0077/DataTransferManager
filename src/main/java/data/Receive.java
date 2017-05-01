@@ -3,7 +3,7 @@ package data;
 import java.util.ArrayList;
 
 /**
- * Created by dsm_025 on 2017-04-16.
+ * Receive 데이터 클래스
  */
 public class Receive {
     private String sourceDir;

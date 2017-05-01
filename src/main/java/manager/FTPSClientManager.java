@@ -13,8 +13,9 @@ import java.net.InetAddress;
  * FTPS Client Manager 클래스
  */
 public class FTPSClientManager {
-    public void doSend(String url, String port, String user, String password, File file, String fileName, String folderName) throws IOException {
-        String remote = fileName;
+    public void doSend(String url, String port, String user, String password, File file, String fileName, String tempDir, String rootDir) throws IOException {
+        String remoteTmp = "/" + tempDir + "/" + fileName;
+        String remoteRoot = "/" + rootDir + "/" + fileName;
         FTPSClient client = new FTPSClient();
         client.setAuthValue("TLS");
         client.setRemoteVerificationEnabled(false);
@@ -30,7 +31,8 @@ public class FTPSClientManager {
         client.execPBSZ(0);
         client.execPROT("P");
         client.enterLocalPassiveMode();
-        client.storeFile(remote, input);
+        client.storeFile(remoteTmp, input);
+        client.rename(remoteTmp, remoteRoot);
         client.logout();
     }
 }

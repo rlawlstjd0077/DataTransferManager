@@ -7,7 +7,6 @@ import data.Target;
 import data.Transfer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ui.MainController;
 
 import java.io.File;
 import java.io.IOException;
@@ -67,7 +66,8 @@ public class FileSender implements Runnable{
             Target target = targetList.get(i);
             if(target.getProtocol().equals("FTPS")){
                 try {
-                    ftpsClient.doSend(target.getIp(), target.getPort(), target.getUser(), target.getPassword(), file, file.getName(), target.getRootDir());
+                    ftpsClient.doSend(target.getIp(), target.getPort(), target.getUser(),
+                            target.getPassword(), file, file.getName(), target.getTempDir(), target.getRootDir());
                     logger.debug("FTPS File Send Success To " + target.getTitle());
                 } catch (IOException e) {
                     if(failCount >= 3){
