@@ -16,7 +16,7 @@
 
 data
 
-​	Config : Config 파일의 Data 클래스
+​	&nbspConfig : Config 파일의 Data 클래스
 
 ​	Receive : Config 하위의 Data 클래스
 
