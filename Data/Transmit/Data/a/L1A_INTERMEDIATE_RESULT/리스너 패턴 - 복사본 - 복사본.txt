@@ -1,0 +1,8 @@
+ public interface OnMyItemClicked{
+        public void onItemClicked(int position);
+    }
+    private OnMyItemClicked mOnMyItemClicked;
+
+    public void setmOnMyItemClicked(OnMyItemClicked onMyItemClicked){
+        this.mOnMyItemClicked = onMyItemClicked;
+    }

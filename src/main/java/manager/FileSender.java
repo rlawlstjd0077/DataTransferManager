@@ -8,8 +8,10 @@ import data.Transfer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 /**
@@ -25,7 +27,7 @@ public class FileSender implements Runnable{
      * File Sender 생성자
      * @param filePath
      * @param folderName
-     * @param state : true : transfer, false : receive
+     * @param state : true (transfer), false : (receive)
      */
     public FileSender(String filePath, String folderName, boolean state){
         this.filePath = filePath;
@@ -34,14 +36,14 @@ public class FileSender implements Runnable{
     }
     @Override
     public void run() {
-        if(state){
+        if(state){          //transfer 일 경우
             ArrayList<Transfer> folderList = Config.configFile.getTransfer();
             for(Transfer transfer : folderList){
                 if(getFolderNameFromPath(transfer.getSourceDir()).equals(folderName)){
                     doSend(transfer.getTarget());
                 }
             }
-        }else{
+        }else{              //receive 일 경우
             ArrayList<Receive> folderList  = Config.configFile.getReceive();
             for(Receive receive : folderList){
                 if(getFolderNameFromPath(receive.getSourceDir()).equals(folderName)){
@@ -53,9 +55,13 @@ public class FileSender implements Runnable{
 
     public String getFolderNameFromPath(String path){
         String[] splitList = path.split("/");
-        return splitList[splitList.length - 1];
+        return splitList[splitList.length - 1].toLowerCase();
     }
 
+    /**
+     * 해당 sourceDir의 target 들에게 file을 send 하는 메소드
+     * @param targetList
+     */
     public void doSend(ArrayList<Target> targetList){
         FTPSClientManager ftpsClient = new FTPSClientManager();
         SMBClientManager smbClient = new SMBClientManager();

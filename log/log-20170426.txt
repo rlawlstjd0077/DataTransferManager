@@ -1,1 +1,0 @@
-806  [JavaFX Application Thread] DEBUG ui.MainController - Config File Refresh
