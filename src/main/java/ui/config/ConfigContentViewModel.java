@@ -6,12 +6,12 @@ import javafx.beans.property.SimpleStringProperty;
 /**
  * Config 파일의 TreeItem 들의 데이터 타입
  */
-class ConfigContent {
+class ConfigContentViewModel {
     private final SimpleStringProperty tag;
     private final SimpleStringProperty name;
     private final SimpleObjectProperty<ConfigController.Role> role;
 
-    public ConfigContent(String tag, String name, ConfigController.Role role) {
+    public ConfigContentViewModel(String tag, String name, ConfigController.Role role) {
         this.tag = new SimpleStringProperty(tag);
         this.name = new SimpleStringProperty(name);
         this.role = new SimpleObjectProperty<ConfigController.Role>(role);

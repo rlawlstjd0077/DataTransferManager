@@ -1,9 +1,6 @@
 package ui;
 
-import data.Config;
-import data.Receive;
-import data.Transfer;
-import data.WatchedList;
+import data.*;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +13,7 @@ import manager.JSONManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui.config.ConfigController;
+import ui.setting.SettingController;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -41,18 +39,28 @@ public class MainController implements Initializable {
     }
 
     public void handleButton(Event event){
+        Stage newStage;
         switch (((Button) event.getSource()).getId()){
             case "configViewButton":
                 ConfigController configController = new ConfigController();
-                Stage newStage = settingNewState(new Scene(configController), "ConfigContent");
+                newStage = settingNewState(new Scene(configController), "ConfigContentView");
                 newStage.setOnHidden(event1 -> {
-                    if(configController.isChoiceState()){
+                    if(configController.isSaveState()){
                         refresh();
                     }
                 });
                 newStage.showAndWait();
                 break;
             case "settingViewButton":
+                SettingController settingController = new SettingController();
+                newStage = settingNewState(new Scene(settingController), "SettingView");
+                newStage.setOnHidden(event1 -> {
+                    if(settingController.isSaveState()){
+                        Setting.FILE_SEND_FAIL_LIMIT = settingController.getLimitCount();
+                        logger.debug("Fail Limit Count is Changed");
+                    }
+                });
+                newStage.showAndWait();
                 break;
         }
     }

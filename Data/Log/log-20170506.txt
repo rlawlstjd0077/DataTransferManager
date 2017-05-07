@@ -1,0 +1,3 @@
+452  [JavaFX Application Thread] DEBUG ui.MainController - Config File Refresh
+516  [JavaFX Application Thread] DEBUG ui.MainController - Config File Refresh
+8586 [JavaFX Application Thread] DEBUG ui.MainController - Fail Limit Count is Changed

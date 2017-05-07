@@ -1,10 +1,7 @@
 package manager;
 
 
-import data.Config;
-import data.Receive;
-import data.Target;
-import data.Transfer;
+import data.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -76,7 +73,7 @@ public class FileSender implements Runnable{
                             target.getPassword(), file, file.getName(), target.getTempDir(), target.getRootDir());
                     logger.debug("FTPS File Send Success To " + target.getTitle());
                 } catch (IOException e) {
-                    if(failCount >= 3){
+                    if(failCount >= Setting.FILE_SEND_FAIL_LIMIT){
                         logger.error("FTPS File Send Failed To " + target.getTitle());
                     }else {
                         i--;
@@ -87,10 +84,10 @@ public class FileSender implements Runnable{
                 failCount = 0;
             }else{
                 try{
-                    smbClient.doSend(target.getIp(), target.getRootDir());
+                    smbClient.doSend(target.getIp(), file, target.getTempDir(),target.getRootDir(), file.getName());
                     logger.debug("SMB File Send Success To " + target.getTitle());
                 }catch (IOException e) {
-                    if(failCount >= 3){
+                    if(failCount >= Setting.FILE_SEND_FAIL_LIMIT){
                         logger.error("SMB File Send Failed To " + target.getTitle());
                     }else {
                         i--;

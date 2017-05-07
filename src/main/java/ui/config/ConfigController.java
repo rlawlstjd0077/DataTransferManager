@@ -30,7 +30,7 @@ import static ui.config.ConfigController.Role.REMOVEABLE;
  */
 public class ConfigController extends BorderPane{
     @FXML
-    private TreeView<ConfigContent> configTree;
+    private TreeView<ConfigContentViewModel> configTree;
     @FXML
     private JFXButton saveBtn;
     @FXML
@@ -42,7 +42,7 @@ public class ConfigController extends BorderPane{
     @FXML
     private JFXButton modifyBtn;
 
-    private boolean choiceState;
+    private boolean saveState;
 
     public ConfigController(){
         try {
@@ -54,7 +54,7 @@ public class ConfigController extends BorderPane{
         scanConfigFile();
         configTree.setEditable(true);
         configTree.getSelectionModel().getSelectedItems().addListener((ListChangeListener) c -> {
-            ConfigContent content = getCurrentSelectedItem().getValue();
+            ConfigContentViewModel content = getCurrentSelectedItem().getValue();
             switch (content.getRole()){
                 case NONE:
                     setButtonsDisable(true, true, true);
@@ -76,7 +76,7 @@ public class ConfigController extends BorderPane{
         removeBtn.setOnMouseClicked(event -> handleButtons(event));
         modifyBtn.setOnMouseClicked(event -> handleButtons(event));
         saveBtn.setOnMouseClicked(event -> {
-            choiceState = true;
+            saveState = true;
             JSONManager.bindJsonFile(createConfigFromTree());
             ((Stage) getScene().getWindow()).close();
         });
@@ -86,8 +86,8 @@ public class ConfigController extends BorderPane{
         configTree.setCellFactory(p -> new TextFieldTreeCellImpl());
     }
 
-    public boolean isChoiceState() {
-        return choiceState;
+    public boolean isSaveState() {
+        return saveState;
     }
 
     private void setButtonsDisable(boolean addState, boolean removeState, boolean modifyState){
@@ -99,7 +99,7 @@ public class ConfigController extends BorderPane{
     private void handleButtons(MouseEvent event){
         switch (((JFXButton)event.getSource()).getId()){
             case "addBtn":
-                TreeItem<ConfigContent> item = getCurrentSelectedItem();
+                TreeItem<ConfigContentViewModel> item = getCurrentSelectedItem();
                 if(getCurrentSelectedItem().getValue().getRole() == ADDABLE){
                     getCurrentSelectedItem().getChildren().add(createSourceInfoDir(item.getValue().getName() + "Data"));
                 }else{
@@ -136,7 +136,7 @@ public class ConfigController extends BorderPane{
      * 해당 item을 remove 하는 메소드
      * @param item
      */
-    private void removeContent(TreeItem<ConfigContent> item){
+    private void removeContent(TreeItem<ConfigContentViewModel> item){
         item.getParent().getChildren().remove(item);
     }
 
@@ -145,11 +145,11 @@ public class ConfigController extends BorderPane{
      * @param itemName
      * @return
      */
-    private TreeItem<ConfigContent> createSourceInfoDir(String itemName) {
-        TreeItem<ConfigContent> treeItem = new TreeItem<>(new ConfigContent(null, itemName, Role.REMOVEABLE));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent("sourceDir",  "", Role.MODIFIABLE)));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent("dataType",  "", Role.MODIFIABLE)));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent(null,  "target", Role.ADDABLE_TARGET)));
+    private TreeItem<ConfigContentViewModel> createSourceInfoDir(String itemName) {
+        TreeItem<ConfigContentViewModel> treeItem = new TreeItem<>(new ConfigContentViewModel(null, itemName, Role.REMOVEABLE));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel("sourceDir",  "", Role.MODIFIABLE)));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel("dataType",  "", Role.MODIFIABLE)));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel(null,  "target", Role.ADDABLE_TARGET)));
         return treeItem;
     }
 
@@ -158,13 +158,13 @@ public class ConfigController extends BorderPane{
      * @param itemName
      * @return
      */
-    private TreeItem<ConfigContent> createTargetSMB(String itemName){
-        TreeItem<ConfigContent> treeItem = new TreeItem<>(new ConfigContent(null, itemName, Role.REMOVEABLE));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent("title",  "", Role.MODIFIABLE)));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent("protocol",  "SMB", Role.MODIFIABLE)));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent("tempDir",  "", Role.MODIFIABLE)));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent("rootDir",  "", Role.MODIFIABLE)));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent("netWorkInfo",  "", Role.MODIFIABLE)));
+    private TreeItem<ConfigContentViewModel> createTargetSMB(String itemName){
+        TreeItem<ConfigContentViewModel> treeItem = new TreeItem<>(new ConfigContentViewModel(null, itemName, Role.REMOVEABLE));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel("title",  "", Role.MODIFIABLE)));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel("protocol",  "SMB", Role.MODIFIABLE)));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel("tempDir",  "", Role.MODIFIABLE)));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel("rootDir",  "", Role.MODIFIABLE)));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel("netWorkInfo",  "", Role.MODIFIABLE)));
         return treeItem;
     }
 
@@ -173,16 +173,16 @@ public class ConfigController extends BorderPane{
      * @param itemName
      * @return
      */
-    private TreeItem<ConfigContent> createTargetFTPS(String itemName){
-        TreeItem<ConfigContent> treeItem = new TreeItem<>(new ConfigContent(null, itemName, Role.REMOVEABLE));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent("title",  "", Role.MODIFIABLE)));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent("protocol",  "FTPS", Role.MODIFIABLE)));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent("ip",  "", Role.MODIFIABLE)));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent("port",  "", Role.MODIFIABLE)));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent("tempDir",  "", Role.MODIFIABLE)));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent("rootDir",  "", Role.MODIFIABLE)));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent("user",  "", Role.MODIFIABLE)));
-        treeItem.getChildren().add(new TreeItem<>(new ConfigContent("password",  "", Role.MODIFIABLE)));
+    private TreeItem<ConfigContentViewModel> createTargetFTPS(String itemName){
+        TreeItem<ConfigContentViewModel> treeItem = new TreeItem<>(new ConfigContentViewModel(null, itemName, Role.REMOVEABLE));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel("title",  "", Role.MODIFIABLE)));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel("protocol",  "FTPS", Role.MODIFIABLE)));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel("ip",  "", Role.MODIFIABLE)));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel("port",  "", Role.MODIFIABLE)));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel("tempDir",  "", Role.MODIFIABLE)));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel("rootDir",  "", Role.MODIFIABLE)));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel("user",  "", Role.MODIFIABLE)));
+        treeItem.getChildren().add(new TreeItem<>(new ConfigContentViewModel("password",  "", Role.MODIFIABLE)));
         return treeItem;
     }
 
@@ -190,7 +190,7 @@ public class ConfigController extends BorderPane{
      * 현재 선택된 TreeItem을 반환하는 메소드
      * @return
      */
-    private TreeItem<ConfigContent> getCurrentSelectedItem(){
+    private TreeItem<ConfigContentViewModel> getCurrentSelectedItem(){
         return configTree.getSelectionModel().getSelectedItem();
     }
 
@@ -213,7 +213,7 @@ public class ConfigController extends BorderPane{
      */
     private void scanConfigFile(){
         Config config = Config.configFile;
-        TreeItem<ConfigContent> root = new TreeItem<>(new ConfigContent("dataDir", "data", Role.NONE));
+        TreeItem<ConfigContentViewModel> root = new TreeItem<>(new ConfigContentViewModel("dataDir", "data", Role.NONE));
 
         ArrayList<Receive> receiveList = config.getReceive();
         ArrayList<Transfer> transferList = config.getTransfer();
@@ -225,55 +225,55 @@ public class ConfigController extends BorderPane{
         root.setExpanded(true);
     }
 
-    private TreeItem<ConfigContent> getTransferDatas(List<Transfer> transferList) {
-        TreeItem<ConfigContent> transferItem = new TreeItem<>(new ConfigContent(null, "transfer", Role.ADDABLE));
+    private TreeItem<ConfigContentViewModel> getTransferDatas(List<Transfer> transferList) {
+        TreeItem<ConfigContentViewModel> transferItem = new TreeItem<>(new ConfigContentViewModel(null, "transfer", Role.ADDABLE));
         for(Transfer transfer : transferList){
-            TreeItem<ConfigContent> transferData = new TreeItem<>(new ConfigContent(null, "transferData", REMOVEABLE));
-            transferData.getChildren().add(new TreeItem<>(new ConfigContent("sourceDir",  transfer.getSourceDir(), Role.MODIFIABLE)));
-            transferData.getChildren().add(new TreeItem<>(new ConfigContent("dataType",  transfer.getSourceDir(), Role.MODIFIABLE)));
+            TreeItem<ConfigContentViewModel> transferData = new TreeItem<>(new ConfigContentViewModel(null, "transferData", REMOVEABLE));
+            transferData.getChildren().add(new TreeItem<>(new ConfigContentViewModel("sourceDir",  transfer.getSourceDir(), Role.MODIFIABLE)));
+            transferData.getChildren().add(new TreeItem<>(new ConfigContentViewModel("dataType",  transfer.getSourceDir(), Role.MODIFIABLE)));
             transferData.getChildren().add(getTransferTarget(transfer));
             transferItem.getChildren().add(transferData);
         }
         return transferItem;
     }
 
-    private TreeItem<ConfigContent> getReceiveDatas(List<Receive> receiveList){
-        TreeItem<ConfigContent> receiveItem = new TreeItem<>(new ConfigContent(null, "receive", Role.ADDABLE));
+    private TreeItem<ConfigContentViewModel> getReceiveDatas(List<Receive> receiveList){
+        TreeItem<ConfigContentViewModel> receiveItem = new TreeItem<>(new ConfigContentViewModel(null, "receive", Role.ADDABLE));
         for(Receive receive : receiveList){
-            TreeItem<ConfigContent> receiveData = new TreeItem<>(new ConfigContent(null, "receiveData", Role.REMOVEABLE));
-            receiveData.getChildren().add(new TreeItem<>(new ConfigContent("sourceDir",  receive.getSourceDir(), Role.MODIFIABLE)));
-            receiveData.getChildren().add(new TreeItem<>(new ConfigContent("dataType",  receive.getSourceDir(), Role.MODIFIABLE)));
+            TreeItem<ConfigContentViewModel> receiveData = new TreeItem<>(new ConfigContentViewModel(null, "receiveData", Role.REMOVEABLE));
+            receiveData.getChildren().add(new TreeItem<>(new ConfigContentViewModel("sourceDir",  receive.getSourceDir(), Role.MODIFIABLE)));
+            receiveData.getChildren().add(new TreeItem<>(new ConfigContentViewModel("dataType",  receive.getSourceDir(), Role.MODIFIABLE)));
             receiveData.getChildren().add(getReceiveTarget(receive));
             receiveItem.getChildren().add(receiveData);
         }
         return receiveItem;
     }
-    private TreeItem<ConfigContent> getTransferTarget(Transfer transfer){
-        TreeItem<ConfigContent> target = new TreeItem<>(new ConfigContent(null, "target", Role.ADDABLE_TARGET));
+    private TreeItem<ConfigContentViewModel> getTransferTarget(Transfer transfer){
+        TreeItem<ConfigContentViewModel> target = new TreeItem<>(new ConfigContentViewModel(null, "target", Role.ADDABLE_TARGET));
         for(Target targetData : transfer.getTarget()){
-            TreeItem<ConfigContent> targetContent = new TreeItem<>(new ConfigContent(null, "target" , REMOVEABLE));
-            targetContent.getChildren().add(new TreeItem<>(new ConfigContent("title",  targetData.getTitle(), Role.MODIFIABLE)));
-            targetContent.getChildren().add(new TreeItem<>(new ConfigContent("protocol",  targetData.getProtocol(), Role.MODIFIABLE)));
-            targetContent.getChildren().add(new TreeItem<>(new ConfigContent("ip",  targetData.getIp(), Role.MODIFIABLE)));
-            targetContent.getChildren().add(new TreeItem<>(new ConfigContent("port",  targetData.getPort(), Role.MODIFIABLE)));
-            targetContent.getChildren().add(new TreeItem<>(new ConfigContent("tempDir",  targetData.getTempDir(), Role.MODIFIABLE)));
-            targetContent.getChildren().add(new TreeItem<>(new ConfigContent("rootDir",  targetData.getRootDir(), Role.MODIFIABLE)));
-            targetContent.getChildren().add(new TreeItem<>(new ConfigContent("user",  targetData.getUser(), Role.MODIFIABLE)));
-            targetContent.getChildren().add(new TreeItem<>(new ConfigContent("password",  targetData.getPassword(), Role.MODIFIABLE)));
+            TreeItem<ConfigContentViewModel> targetContent = new TreeItem<>(new ConfigContentViewModel(null, "target" , REMOVEABLE));
+            targetContent.getChildren().add(new TreeItem<>(new ConfigContentViewModel("title",  targetData.getTitle(), Role.MODIFIABLE)));
+            targetContent.getChildren().add(new TreeItem<>(new ConfigContentViewModel("protocol",  targetData.getProtocol(), Role.MODIFIABLE)));
+            targetContent.getChildren().add(new TreeItem<>(new ConfigContentViewModel("ip",  targetData.getIp(), Role.MODIFIABLE)));
+            targetContent.getChildren().add(new TreeItem<>(new ConfigContentViewModel("port",  targetData.getPort(), Role.MODIFIABLE)));
+            targetContent.getChildren().add(new TreeItem<>(new ConfigContentViewModel("tempDir",  targetData.getTempDir(), Role.MODIFIABLE)));
+            targetContent.getChildren().add(new TreeItem<>(new ConfigContentViewModel("rootDir",  targetData.getRootDir(), Role.MODIFIABLE)));
+            targetContent.getChildren().add(new TreeItem<>(new ConfigContentViewModel("user",  targetData.getUser(), Role.MODIFIABLE)));
+            targetContent.getChildren().add(new TreeItem<>(new ConfigContentViewModel("password",  targetData.getPassword(), Role.MODIFIABLE)));
             target.getChildren().add(targetContent);
         }
         return target;
     }
 
-    private TreeItem<ConfigContent> getReceiveTarget(Receive receive){
-        TreeItem<ConfigContent> target = new TreeItem<>(new ConfigContent(null, "target", Role.ADDABLE_TARGET));
+    private TreeItem<ConfigContentViewModel> getReceiveTarget(Receive receive){
+        TreeItem<ConfigContentViewModel> target = new TreeItem<>(new ConfigContentViewModel(null, "target", Role.ADDABLE_TARGET));
         for(Target targetData : receive.getTarget()){
-            TreeItem<ConfigContent> targetContent = new TreeItem<>(new ConfigContent(null, "target", REMOVEABLE));
-            targetContent.getChildren().add(new TreeItem<>(new ConfigContent("title",  targetData.getTitle(), Role.MODIFIABLE)));
-            targetContent.getChildren().add(new TreeItem<>(new ConfigContent("protocol",  targetData.getProtocol(), Role.MODIFIABLE)));
-            targetContent.getChildren().add(new TreeItem<>(new ConfigContent("tempDir",  targetData.getTempDir(), Role.MODIFIABLE)));
-            targetContent.getChildren().add(new TreeItem<>(new ConfigContent("rootDir",  targetData.getRootDir(), Role.MODIFIABLE)));
-            targetContent.getChildren().add(new TreeItem<>(new ConfigContent("netWorkInfo",  targetData.getTempDir(), Role.MODIFIABLE)));
+            TreeItem<ConfigContentViewModel> targetContent = new TreeItem<>(new ConfigContentViewModel(null, "target", REMOVEABLE));
+            targetContent.getChildren().add(new TreeItem<>(new ConfigContentViewModel("title",  targetData.getTitle(), Role.MODIFIABLE)));
+            targetContent.getChildren().add(new TreeItem<>(new ConfigContentViewModel("protocol",  targetData.getProtocol(), Role.MODIFIABLE)));
+            targetContent.getChildren().add(new TreeItem<>(new ConfigContentViewModel("tempDir",  targetData.getTempDir(), Role.MODIFIABLE)));
+            targetContent.getChildren().add(new TreeItem<>(new ConfigContentViewModel("rootDir",  targetData.getRootDir(), Role.MODIFIABLE)));
+            targetContent.getChildren().add(new TreeItem<>(new ConfigContentViewModel("netWorkInfo",  targetData.getTempDir(), Role.MODIFIABLE)));
             target.getChildren().add(targetContent);
         }
         return target;
@@ -286,11 +286,11 @@ public class ConfigController extends BorderPane{
     private Config createConfigFromTree(){
         Config config = new Config();
         config.setDataDir(configTree.getRoot().getValue().getName());
-        TreeItem<ConfigContent> transfer = configTree.getRoot().getChildren().get(0);
-        TreeItem<ConfigContent> receive = configTree.getRoot().getChildren().get(1);
+        TreeItem<ConfigContentViewModel> transfer = configTree.getRoot().getChildren().get(0);
+        TreeItem<ConfigContentViewModel> receive = configTree.getRoot().getChildren().get(1);
 
         ArrayList<Transfer> transferList = new ArrayList<>();
-        for(TreeItem<ConfigContent> transferData : transfer.getChildren()){
+        for(TreeItem<ConfigContentViewModel> transferData : transfer.getChildren()){
             Transfer tmpTransfer = new Transfer();
             tmpTransfer.setSourceDir(transferData.getChildren().get(0).getValue().getName());
             tmpTransfer.setDataType(transferData.getChildren().get(1).getValue().getName());
@@ -300,7 +300,7 @@ public class ConfigController extends BorderPane{
         config.setTransfer(transferList);
 
         ArrayList<Receive> receiveList = new ArrayList<>();
-        for(TreeItem<ConfigContent> receiveData : receive.getChildren()){
+        for(TreeItem<ConfigContentViewModel> receiveData : receive.getChildren()){
             Receive tmpReceive = new Receive();
             tmpReceive.setSourceDir(receiveData.getChildren().get(0).getValue().getName());
             tmpReceive.setDataType(receiveData.getChildren().get(1).getValue().getName());
@@ -312,9 +312,9 @@ public class ConfigController extends BorderPane{
         return config;
     }
 
-    private ArrayList<Target> getTargets(TreeItem<ConfigContent> targetItem){
+    private ArrayList<Target> getTargets(TreeItem<ConfigContentViewModel> targetItem){
         ArrayList<Target> targetList = new ArrayList<>();
-        for(TreeItem<ConfigContent> item : targetItem.getChildren()){
+        for(TreeItem<ConfigContentViewModel> item : targetItem.getChildren()){
             Target target = new Target();
             String protocol;
             if((protocol = item.getChildren().get(1).getValue().getName()).equals("FTPS")){      //FTPS 일 때
@@ -341,9 +341,9 @@ public class ConfigController extends BorderPane{
     /**
      * ConfigTreeView의 TreeCell
      */
-    private final class TextFieldTreeCellImpl extends TreeCell<ConfigContent> {
+    private final class TextFieldTreeCellImpl extends TreeCell<ConfigContentViewModel> {
         @Override
-        protected void updateItem(ConfigContent item, boolean empty) {
+        protected void updateItem(ConfigContentViewModel item, boolean empty) {
             super.updateItem(item, empty);
             if(!empty) {
                 setText(item.getTag() == null ? item.getName() : item.getTag() + " : " + item.getName());
