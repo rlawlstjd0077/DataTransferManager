@@ -2,10 +2,28 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Priority?>
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
 <BorderPane fx:controller="ui.MainController" stylesheets="@main.css"
             xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <HBox alignment="CENTER">
+            <BorderPane.margin>
+                <Insets top="20"/>
+            </BorderPane.margin>
+            <Label text="Data Transfer SW">
+                <font>
+                    <Font size="30"  name="Roboto Regular"/>
+                </font>
+            </Label>
+        </HBox>
+    </top>
     <center>
         <HBox>
+            <BorderPane.margin>
+                <Insets bottom="30"/>
+            </BorderPane.margin>
             <HBox alignment="CENTER">
                 <JFXButton text="Config View" fx:id="configViewButton" styleClass="button-raised"/>
                 <HBox.hgrow>

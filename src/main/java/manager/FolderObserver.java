@@ -3,9 +3,8 @@ package manager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.DataType;
-
-import java.io.*;
-import java.nio.channels.FileChannel;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.*;
 
 /**
@@ -16,9 +15,9 @@ public class FolderObserver implements Runnable {
     private boolean state;
     private String folderName;
     private String folderPath;
-    private static final Logger logger = LoggerFactory.getLogger(FolderObserver.class);
-    private final String RECEIVE_DATA_FOLDER = "Data/Receive/Data";
-    private final String TRANSMIT_DATA_FOLDER = "Data/Transmit/Data";
+    private static final Logger logger =
+            LoggerFactory.getLogger(FolderObserver.class);
+
     /**
      * 생성자에서 감시할 폴더의 정보를 준다.
      *
@@ -32,7 +31,7 @@ public class FolderObserver implements Runnable {
 
     @Override
     public void run() {
-        WatchService myWatchService = null;
+        WatchService myWatchService;
         WatchKey watchKey = null;
         try {
             myWatchService = FileSystems.getDefault().newWatchService();
@@ -46,21 +45,41 @@ public class FolderObserver implements Runnable {
         }
 
         while (!Thread.currentThread().isInterrupted()) {
-           for (WatchEvent event : watchKey.pollEvents()) {
-                logger.info("Change State at : " + folderPath);
+            for (WatchEvent event : watchKey.pollEvents()) {
+                logger.debug("Create " + event.context()
+                        + " file in " + folderPath);
                 DataType type = DataType.fromFilename(event.context().toString());
                 if (state) {      //transmit 폴더 일 경우
-                    new File(TRANSMIT_DATA_FOLDER + "/" + folderName + "/" +  type ).mkdirs();
-                    String dataFolderPath = TRANSMIT_DATA_FOLDER + "/" + folderName + "/" +  type + "/" + event.context();
-                    moveFileToData(folderPath + "/" + event.context(), dataFolderPath);
-                    FileSender transmitSender = new FileSender(dataFolderPath, folderName, true);
+                    new File(FileMoveManager.TRANSMIT_DATA_FOLDER + "/"
+                            + folderName + "/" + type).mkdirs();
+                    String dataFilePath = FileMoveManager.TRANSMIT_DATA_FOLDER
+                            + "/" + folderName + "/" + type + "/" + event.context();
+
+                    if (new File(dataFilePath).exists()) {        //동일한 파일이 있는 경우
+                        new File(dataFilePath).renameTo(
+                                new File(FileMoveManager.getValidDuplicateFile(new File(dataFilePath))));
+                    }
+
+                    FileMoveManager.moveFileToData(folderPath
+                            + "/" + event.context(), dataFilePath);
+                    FileSender transmitSender =
+                            new FileSender(dataFilePath, folderName, true);
                     new Thread(transmitSender).start();
                 } else {        //receive 폴더 일 경우
-                    new File(RECEIVE_DATA_FOLDER + "/" + folderName + "/" +  type ).mkdirs();
-                    String dataFolderPath = RECEIVE_DATA_FOLDER + "/" + folderName + "/" + type + "/" + event.context();
-                    moveFileToData(folderPath + "/" + event.context(),
-                            dataFolderPath);
-                    FileSender receiveSender = new FileSender(dataFolderPath, folderName, false);
+                    new File(FileMoveManager.RECEIVE_DATA_FOLDER + "/"
+                            + folderName + "/" + type).mkdirs();
+                    String dataFilePath = FileMoveManager.RECEIVE_DATA_FOLDER + "/"
+                            + folderName + "/" + type + "/" + event.context();
+
+                    if (new File(dataFilePath).exists()) {        //동일한 파일이 있는 경우
+                        new File(dataFilePath).renameTo(
+                                new File(FileMoveManager.getValidDuplicateFile(new File(dataFilePath))));
+                    }
+
+                    FileMoveManager.moveFileToData(folderPath + "/"
+                            + event.context(), dataFilePath);
+                    FileSender receiveSender =
+                            new FileSender(dataFilePath, folderName, false);
                     new Thread(receiveSender).start();
                 }
             }
@@ -68,20 +87,5 @@ public class FolderObserver implements Runnable {
                 break;
             }
         }
-    }
-
-    /**
-     * Data dir로 파일을 Move 하는 메소드
-     * @param filePath
-     * @param dataDirPath
-     */
-    public void moveFileToData(String filePath, String dataDirPath) {
-        try {
-            Files.move(Paths.get(filePath), Paths.get(dataDirPath));
-        } catch (IOException e) {
-            logger.error("File Move Failed in Local");
-            return;
-        }
-        logger.info("File Move Succeed in Local");
     }
 }

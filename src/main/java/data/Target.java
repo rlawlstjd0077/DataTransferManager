@@ -12,7 +12,6 @@ public class Target {
     private String rootDir;
     private String user;
     private String password;
-    private String netWorkInfo;
 
 
     public String getTitle() {
@@ -77,13 +76,5 @@ public class Target {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getNetWorkInfo() {
-        return netWorkInfo;
-    }
-
-    public void setNetWorkInfo(String netWorkInfo) {
-        this.netWorkInfo = netWorkInfo;
     }
 }

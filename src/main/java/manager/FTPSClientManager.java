@@ -1,19 +1,26 @@
 package manager;
 
 import org.apache.commons.net.ftp.FTP;
-import org.apache.commons.net.ftp.FTPReply;
 import org.apache.commons.net.ftp.FTPSClient;
 import org.apache.commons.net.util.TrustManagerUtils;
 
-import java.io.*;
-import java.net.Inet4Address;
-import java.net.InetAddress;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * FTPS Client Manager 클래스
  */
 public class FTPSClientManager {
-    public void doSend(String url, String port, String user, String password, File file, String fileName, String tempDir, String rootDir) throws IOException {
+    public void doSend(final String url,
+                       final String port,
+                       final String user,
+                       final String password,
+                       final File file,
+                       final String fileName,
+                       final String tempDir,
+                       final String rootDir) throws IOException {
         String remoteTmp = "/" + tempDir + "/" + fileName;
         String remoteRoot = "/" + rootDir + "/" + fileName;
         FTPSClient client = new FTPSClient();
@@ -31,8 +38,11 @@ public class FTPSClientManager {
         client.execPBSZ(0);
         client.execPROT("P");
         client.enterLocalPassiveMode();
+        client.mkd("/" + tempDir);
+        client.mkd("/" + rootDir);
         client.storeFile(remoteTmp, input);
         client.rename(remoteTmp, remoteRoot);
         client.logout();
+        client.disconnect();
     }
 }

@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.dsm25.app.iml" filepath="$PROJECT_DIR$/.idea/modules/com.dsm25.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.dsm25.app_main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.dsm25.app_main.iml" group="com.dsm25.app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.dsm25.app_test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.dsm25.app_test.iml" group="com.dsm25.app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dsm025.iml" filepath="$PROJECT_DIR$/.idea/modules/dsm025.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dsm025_main.iml" filepath="$PROJECT_DIR$/.idea/modules/dsm025_main.iml" group="dsm025" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dsm025_test.iml" filepath="$PROJECT_DIR$/.idea/modules/dsm025_test.iml" group="dsm025" />
     </modules>
   </component>
 </project>

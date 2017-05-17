@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="com.dsm25.app_main" target="1.8" />
-      <module name="com.dsm25.app_test" target="1.8" />
+      <module name="dsm025_main" target="1.8" />
+      <module name="dsm025_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

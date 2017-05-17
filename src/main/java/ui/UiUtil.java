@@ -17,11 +17,17 @@ public class UiUtil {
         return loader;
     }
 
+    public static FXMLLoader getFxmlLoader(Class<?> clazz, String name) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(clazz.getResource(name));
+        return loader;
+    }
+
 
     /**
-     * FXML을 MainController 이름을 기반으로 추출하여 읽고 등록.
+     * FXML을  이름을 기반으로 추출하여 읽고 등록.
      *
-     * @param controller MainController 인스턴스.
+     * @param controller  인스턴스.
      * @throws IOException 파일이 없을 때 발생.
      */
     public static void loadFxml(Parent controller) throws IOException {

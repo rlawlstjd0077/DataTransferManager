@@ -1,12 +1,11 @@
 package data;
-
 import java.util.ArrayList;
 
 /**
  * Config 파일 클래스
  */
-public class Config {
-    public static Config configFile;
+public final class Config {
+    private static Config configFile;
     private String dataDir;
     private ArrayList<Transfer> transfer = new ArrayList<>();
     private ArrayList<Receive> receive = new ArrayList<>();
@@ -33,5 +32,13 @@ public class Config {
 
     public void setReceive(ArrayList<Receive> receive) {
         this.receive = receive;
+    }
+
+    public static Config getConfigFile() {
+        return configFile;
+    }
+
+    public static void setConfigFile(Config configFile) {
+        Config.configFile = configFile;
     }
 }

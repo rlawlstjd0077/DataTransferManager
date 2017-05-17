@@ -1,1 +1,17 @@
-# Created by .ignore support plugin (hsz.mobi)
+## GK2 Ignore files.
+.gradle/
+.idea/
+classes/
+target/
+build/
+out/
+*.iml
+
+gk2-agent/data/
+gk2a-mss-server/lib/kafka_2.11-0.10.1.1/logs/
+gk2a-mss-server/data/
+gk2a-mss-viewer/data/
+gk2a-mps-server/data/
+gk2a-mps-server-ui/template/
+gk2a-fds/data/fds_op/
+Data/Log/

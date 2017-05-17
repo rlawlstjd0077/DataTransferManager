@@ -1,1 +1,81 @@
-{"dataDir":"data","transfer":[{"sourceDir":"transmit/A","dataType":"GK2A_MISSION_EVENT","target":[{"title":"ASERVER","protocol":"FTPS","ip":"192.168.219.107","port":2000,"tempDir":"interface/tmp","rootDir":"interface/F","user":"ASERVER","password":1234},{"title":"BSERVER","protocol":"FTPS","ip":"192.xxx.xxx.xxx","port":2000,"tempDir":"interface/tmp","rootDir":"interface/F","user":"BSERVER","password":1234},{"title":"CSERVER","protocol":"FTPS","ip":"192.xxx.xxx.xxx","port":2000,"tempDir":"interface/tmp","rootDir":"interface/F","user":"CSERVER","password":1234}]},{"sourceDir":"transmit/FD","dataType":"MISSION_SCHEDULE","target":[{"title":"ASERVER","protocol":"FTPS","ip":"192.168.219.107","port":2000,"tempDir":"interface/tmp","rootDir":"interface/F","user":"ASERVER","password":1234},{"title":"BSERVER","protocol":"FTPS","ip":"192.xxx.xxx.xxx","port":2000,"tempDir":"interface/tmp","rootDir":"interface/F","user":"BSERVER","password":1234},{"title":"CSERVER","protocol":"FTPS","ip":"192.xxx.xxx.xxx","port":2000,"tempDir":"interface/tmp","rootDir":"interface/F","user":"CSERVER","password":1234}]}],"receive":[{"sourceDir":"receive/G","dataType":"receive/G","target":[{"title":"CSERVER","protocol":"SMB","tempDir":"interface/tmp","rootDir":"interface/N","netWorkInfo":"interface/tmp"},{"title":"DSERVER","protocol":"SMB","tempDir":"interface/tmp","rootDir":"interface/N","netWorkInfo":"interface/tmp"}]}]}
+{
+  "dataDir": "data",
+  "transfer": [
+    {
+      "sourceDir": "transmit/A",
+      "dataType": "GK2A_MISSION_EVENT",
+      "target": [
+        {
+          "title": "ggo5-server-ftp",
+          "protocol": "FTPS",
+          "ip": "ggo5",
+          "port": "21",
+          "tempDir": "interface/tmp",
+          "rootDir": "interface/F",
+          "user": "ftp_nmsc",
+          "password": "ftp_nmscpw"
+        }
+      ]
+    },
+    {
+      "sourceDir": "transmit/FD",
+      "dataType": "MISSION_SCHEDULE",
+      "target": [
+        {
+          "title": "ASERVER",
+          "protocol": "FTPS",
+          "ip": "192.168.219.107",
+          "port": "2000",
+          "tempDir": "interface/tmp",
+          "rootDir": "interface/F",
+          "user": "ASERVER",
+          "password": "1234"
+        },
+        {
+          "title": "BSERVER",
+          "protocol": "FTPS",
+          "ip": "192.xxx.xxx.xxx",
+          "port": "2000",
+          "tempDir": "interface/tmp",
+          "rootDir": "interface/F",
+          "user": "BSERVER",
+          "password": "1234"
+        },
+        {
+          "title": "CSERVER",
+          "protocol": "FTPS",
+          "ip": "192.xxx.xxx.xxx",
+          "port": "2000",
+          "tempDir": "interface/tmp",
+          "rootDir": "interface/F",
+          "user": "CSERVER",
+          "password": "1234"
+        }
+      ]
+    }
+  ],
+  "receive": [
+    {
+      "sourceDir": "receive/G",
+      "dataType": "EVENT_PREDICTION",
+      "target": [
+        {
+          "title": "CSERVER",
+          "protocol": "SMB",
+          "tempDir": "\\\\ggo5\\Users\\ggo\\EDS_GK2A_MPS\\interface\\tmp",
+          "rootDir": "\\\\ggo5\\Users\\ggo\\EDS_GK2A_MPS\\interface\\NMSC",
+          "user": "CSERVER",
+          "password": "1234"
+        },
+        {
+          "title": "DSERVER",
+          "protocol": "SMB",
+          "tempDir": "interface/tmp",
+          "rootDir": "interface/N",
+          "user": "CSERVER",
+          "password": "1234"
+        }
+      ]
+    }
+  ]
+}

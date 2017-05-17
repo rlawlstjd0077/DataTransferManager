@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<fx:root xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         prefWidth="300.0" prefHeight="100.0" type="BorderPane">
+    <center>
+        <VBox alignment="CENTER">
+            <padding>
+                <Insets left="20" right="20"/>
+            </padding>
+            <ComboBox fx:id="inputComboBox" />
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER">
+            <padding>
+                <Insets left="10" right="10"/>
+            </padding>
+            <JFXButton fx:id="saveBtn" text="Save" prefWidth="60"/>
+            <Label prefWidth="10"/>
+            <JFXButton fx:id="cancelBtn" text="Cancel" prefWidth="60"/>
+        </HBox>
+    </bottom>
+</fx:root>

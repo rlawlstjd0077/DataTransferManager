@@ -6,7 +6,7 @@ package util;
 public enum DataType {
     ECEF_EPHMEREDES("ECEF"),
     ECI_EPHMEREDES("ECI"),
-    EVENT_PREDICTION("EP_"),
+    EVENT_PREDICTION("_EP_"),
     STATION_KEEPING_MANEUVER("SKM"),
     STATION_RELOCATION_MANEUVER("SRM"),
     FINAL_ORBIT_RAISING_MANEUVER("FOR"),
@@ -36,6 +36,12 @@ public enum DataType {
     GK2A_MISSION_EVENT("GK2A_EVENT"),
     GK2B_MISSION_EVENT("GK2B_EVENT"),
 
+    // COMS
+    COMS_EPHEMERIDES("EPHEMEREDES"),
+    COMS_MANEUVER_PLAN_NSSK("NSSK_"),
+    COMS_MANEUVER_PLAN_SR("SR_"),
+    COMS_EVENT_PREDICTION("EP_"),
+
     // GK2A MPS
     AMI_SCENE_DEF("N/A"),
     AMI_TIMELINE_DEF("N/A"),
@@ -50,26 +56,25 @@ public enum DataType {
     UNKNOWN("UNKNOWN"),
 
     // GK2A FDS
+    LEOP_LAE_BURN_REPORT("LEOP_LAE_BURN_REPORT"),
+
     MOON_ACQUISITION_CANDIDATE("MAC"),
-    COMS_EPHEMERIDES("EPHEMEREDES"),
     GK2B_EPHEMERIDES("GK2B_EPHEMERIDES"),
     FUEL_DATA("FUEL_DT"),
     FOCUSLEOP_LAE_BURN("LAE"),
     FOCUSLEOP_STATION_ACQUISITION("SA_LEOP"),
     FOCUSLEOP_ORBIT_DATA("ORBIT"),
-    FOCUSLEOP_RANGING_DATA_GEOSC("RDGEOS"),
+    RANGING_DATA_GEOSC("RDGEOS"),
     FOCUSLEOP_TRACKING_DATA("LEOPTD"),
-    ORBIT_DATA("TLE"),
-    POLARIZATION("POLARIZATION"),
+    TLE_ORBIT_DATA("TLE"),
+    POLARIZATION("POLA"),
+    RANGING_DATA_ASCII(""),
 
     // AMI DPS
     GK2A_AMI_CHANNEL_PARAMETER("AMI_CH_Parameter"),
     L1A_INTERMEDIATE_RESULT(""),
     IMAGE_PRODUCT("");
 
-    public String getKeyword() {
-        return keyword;
-    }
 
     private String keyword;
 
@@ -78,7 +83,17 @@ public enum DataType {
     }
 
     /**
-     * 파일 명의 키워드를 이용해 Data Type 분류
+     * Enum 명의 밑줄을 공백으로 바꾼 데이터 이름
+     *
+     * @return DataType 명.
+     */
+    public String toName() {
+        return this.toString().replace("_", " ");
+    }
+
+    /**
+     * 파일 명의 키워드를 이용해 Data Type 분류.
+     *
      * @param filename 파일 명.
      * @return DataType Enum.
      */
