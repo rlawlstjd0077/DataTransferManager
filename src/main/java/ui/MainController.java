@@ -129,7 +129,6 @@ public class MainController implements Initializable {
         Config config = Config.getConfigFile();
         String folderPath;
 
-
         for (Transfer transfer : config.getTransfer()) {
             folderPath = getInterfacePathFromConfig(transfer.getSourceDir(), true);
             Thread thread = new Thread(observerGroup, new FolderObserver(folderPath, true));

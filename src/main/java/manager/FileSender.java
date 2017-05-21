@@ -115,7 +115,7 @@ public class FileSender implements Runnable {
                 } catch (IOException e) {
                     if (failCount >= Setting.FILE_SEND_FAIL_LIMIT) {
                         logger.error("Fail to send 'SMB File' - " + file.getName()
-                                + " to " + target.getTitle() + " cased by " + e.toString());
+                                + " to " + target.getTitle() + " cased by " + e.getMessage());
                     } else {
                         i--;
                         failCount++;
@@ -123,6 +123,7 @@ public class FileSender implements Runnable {
                                 + " - " + file.getName() + " to " + target.getTitle());
                         continue;
                     }
+                } catch (NullPointerException e) {
                 }
                 failCount = 0;
             }
