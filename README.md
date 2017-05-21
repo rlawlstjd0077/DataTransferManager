@@ -1,14 +1,14 @@
-DataTransferSW
+#DataTransferSW
 
 - 설정 파일(Json)을 읽어 특정 폴더의 파일 생성을 감지하고 명시된 외부 서버에 파일을 전송하는 SW
 - 설정 파일은 UI를 통해 수정이 가능하고 수정 즉시 프로그램에 적용
 
-개발환경
+##개발환경
 
 - JAVA (JDK 1.8 이상)
 - GUI : JavaFX
 
-클래스 구조
+##클래스 구조
 
 - data
   - Config : Config 파일의 Data 클래스
@@ -39,7 +39,7 @@ DataTransferSW
 
 
 
-사용 라이브러리
+##사용 라이브러리
 
 - Gson : jsonParsing, Binding 기능 구현시 사용
 - Commons-net : FTPS Client 관련 기능 구현시 사용
