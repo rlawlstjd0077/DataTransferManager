@@ -20,7 +20,6 @@ public class FileMoveManager {
 
     /**
      * Data dir로 파일을 Move 하는 메소드
-     *
      * @param originFilePath : 파일의 원시 주소
      * @param dataFilePath   : 파일의 이동 주소
      */
@@ -37,6 +36,8 @@ public class FileMoveManager {
             }
 
             Files.move(sourcePath, targetPath);
+
+            
         } catch (IOException e) {
             logger.error("Fail to Move " + new File(originFilePath).getName()
                     + " File in local caused by " + e.toString());
