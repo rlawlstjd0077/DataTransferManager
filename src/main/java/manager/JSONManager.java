@@ -10,6 +10,7 @@ import java.io.*;
  * JSON 관련 처리 기능을 담당하는 클래스
  */
 public class JSONManager {
+    private static final String CONFIG_PATH = "Data/Config/config.config";
     /**
      * JsonFile txt 파일을 읽어와 Config 객체로 저장하는 클래스
      * @return
@@ -18,7 +19,7 @@ public class JSONManager {
         String result = "";
         try {
             BufferedReader in =
-                    new BufferedReader(new FileReader(new File("Data/Config/config.txt")));
+                    new BufferedReader(new FileReader(new File(CONFIG_PATH)));
 
             String tmp;
             while ((tmp = in.readLine()) != null) {
@@ -42,7 +43,7 @@ public class JSONManager {
     public static void bindJsonFile(Config config) {
         try {
             //json 파일 초기화
-            PrintWriter writer = new PrintWriter(new File("Data/Config/config.txt"));
+            PrintWriter writer = new PrintWriter(new File(CONFIG_PATH));
             writer.print("");
             writer.close();
 
@@ -51,7 +52,7 @@ public class JSONManager {
             final Gson gson = builder.create();
             String json = gson.toJson(config);
             BufferedWriter out =
-                    new BufferedWriter(new FileWriter(new File("Data/Config/config.txt")));
+                    new BufferedWriter(new FileWriter(new File(CONFIG_PATH)));
             out.write(json);
             out.flush();
 

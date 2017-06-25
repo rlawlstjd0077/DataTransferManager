@@ -23,7 +23,7 @@ public class TreeBindManager {
     public TreeItem<ConfigContentViewModel> getTransferData(List<Transfer> transferList) {
         TreeItem<ConfigContentViewModel> transferItem =
                 new TreeItem<>(new ConfigContentViewModel(
-                        null, "transfer", ConfigController.Role.ADDABLE));
+                         null, "transfer", ConfigController.Role.ADDABLE));
 
         for (Transfer transfer : transferList) {
             TreeItem<ConfigContentViewModel> transferData =

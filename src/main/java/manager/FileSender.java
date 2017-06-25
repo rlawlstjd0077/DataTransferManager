@@ -1,6 +1,9 @@
 package manager;
 
+import ch.qos.logback.core.util.FileUtil;
 import data.*;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +40,7 @@ public class FileSender implements Runnable {
             ArrayList<Transfer> folderList =
                     Config.getConfigFile().getTransfer();
             for (Transfer transfer : folderList) {
-                if (getFolderNameFromPath(transfer.getSourceDir()).equals(folderName)) {
+                if (FilenameUtils.getBaseName(transfer.getSourceDir()).equals(folderName)) {
                     doSend(transfer.getTarget());
                 }
             }
@@ -45,21 +48,11 @@ public class FileSender implements Runnable {
             ArrayList<Receive> folderList =
                     Config.getConfigFile().getReceive();
             for (Receive receive : folderList) {
-                if (getFolderNameFromPath(receive.getSourceDir()).equals(folderName)) {
+                if (FilenameUtils.getBaseName(receive.getSourceDir()).equals(folderName)) {
                     doSend(receive.getTarget());
                 }
             }
         }
-    }
-
-    /**
-     * Path로 부터 Folder 명을 가져오는 메소드
-     * @param path
-     * @return
-     */
-    public String getFolderNameFromPath(String path) {
-        String[] splitList = path.split("/");
-        return splitList[splitList.length - 1].toLowerCase();
     }
 
     /**

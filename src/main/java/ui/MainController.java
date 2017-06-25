@@ -12,6 +12,7 @@ import manager.FileMoveManager;
 import manager.FileSender;
 import manager.FolderObserver;
 import manager.JSONManager;
+import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui.config.ConfigController;
@@ -32,8 +33,6 @@ public class MainController implements Initializable {
     private Button settingViewButton;
 
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
-    private final String TRANSMIT_INTERFACE_FOLDER = "Data/Transmit/interface";
-    private final String RECEIVE_INTERFACE_FOLDER = "Data/Receive/interface";
     private final String TRANSMIT_DATA_FOLDER = "Data/Transmit/Data";
     private final String RECEIVE_DATA_FOLDER = "Data/Receive/Data";
 
@@ -85,24 +84,33 @@ public class MainController implements Initializable {
     }
 
     private void refresh() {
-        logger.debug("Refresh Config File - config.txt");
+        logger.debug("Refresh Config File - config.config");
         JSONManager.parseJsonFile();
+        createDataFolder();
         transmitRemainFile();
         traceFolder();
     }
 
+    /**
+     * Config의 모든 sourceDir을 체크
+     */
     private void transmitRemainFile() {
-        for (File folder : new File(TRANSMIT_INTERFACE_FOLDER).listFiles()) {
-            new File(TRANSMIT_DATA_FOLDER + "/" + folder.getName()).mkdir();
-            checkFolder(folder.getPath(), true);
+        Config config = Config.getConfigFile();
+
+        for (Transfer transfer : config.getTransfer()) {
+            checkFolder(transfer.getSourceDir(), true);
         }
 
-        for (File folder : new File(RECEIVE_INTERFACE_FOLDER).listFiles()) {
-            new File(RECEIVE_DATA_FOLDER + "/" + folder.getName()).mkdir();
-            checkFolder(folder.getPath(), false);
+        for (Receive receive : config.getReceive()) {
+            checkFolder(receive.getSourceDir(), false);
         }
     }
 
+    /**
+     * 해당 folderPath에 파일이 있으면 move와 전송 기능을 수행
+     * @param folderPath
+     * @param state : true (Transmit), false(Receive)
+     */
     private void checkFolder(String folderPath, boolean state) {
         for (File file : new File(folderPath).listFiles()) {
             String dataFilePath;
@@ -130,27 +138,38 @@ public class MainController implements Initializable {
         String folderPath;
 
         for (Transfer transfer : config.getTransfer()) {
-            folderPath = getInterfacePathFromConfig(transfer.getSourceDir(), true);
+            folderPath = transfer.getSourceDir();
             Thread thread = new Thread(observerGroup, new FolderObserver(folderPath, true));
             thread.start();
         }
 
         for (Receive receive : config.getReceive()) {
-            folderPath = getInterfacePathFromConfig(receive.getSourceDir(), false);
+            folderPath = receive.getSourceDir();
             Thread thread = new Thread(observerGroup, new FolderObserver(folderPath, false));
             thread.start();
         }
     }
-    private String getInterfacePathFromConfig(String folderName, boolean state) {
-        String newFolderPath;
 
-        if (state) {
-            newFolderPath = TRANSMIT_INTERFACE_FOLDER + "/" + folderName.split("/")[1].toLowerCase();
-        } else {
-            newFolderPath = RECEIVE_INTERFACE_FOLDER + "/" + folderName.split("/")[1].toLowerCase();
+    /**
+     * Config에 존재하는 모든 SourceDir 과 DataDir을 craete 하는 메소드
+     */
+    private void createDataFolder(){
+        Config config = Config.getConfigFile();
+
+        for (Transfer transfer : config.getTransfer()) {
+            File dataFolder = new File(TRANSMIT_DATA_FOLDER + "/" +FilenameUtils.getBaseName(transfer.getSourceDir()));
+            if(!dataFolder.exists()) {
+                new File(transfer.getSourceDir()).mkdirs();
+                dataFolder.mkdir();
+            }
         }
 
-        new File(newFolderPath).mkdir();
-        return newFolderPath;
+        for (Receive receive : config.getReceive()) {
+            File dataFolder = new File(RECEIVE_DATA_FOLDER + "/" +FilenameUtils.getBaseName(receive.getSourceDir()));
+            if(!dataFolder.exists()) {
+                new File(receive.getSourceDir()).mkdirs();
+                dataFolder.mkdir();
+            }
+        }
     }
 }
