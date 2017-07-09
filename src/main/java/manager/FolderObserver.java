@@ -36,45 +36,29 @@ public class FolderObserver implements Runnable {
             myWatchService = FileSystems.getDefault().newWatchService();
             Path path = Paths.get(dirPath);
             watchKey = path.register(myWatchService,
-                    StandardWatchEventKinds.ENTRY_CREATE);
+                    StandardWatchEventKinds.ENTRY_MODIFY);
             folderName = path.getFileName().toString(); // 폴더명만 리턴
         } catch (IOException e) {
         }
 
         while (!Thread.currentThread().isInterrupted()) {
             for (WatchEvent event : watchKey.pollEvents()) {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                }
+                if(!Files.isReadable(Paths.get(dirPath + "/" + event.context()))){
+                    continue;
+                }
                 logger.debug("Create " + event.context()
                         + " file in " + dirPath);
-                DataType type = DataType.fromFilename(event.context().toString());
                 if (state) {      //transmit 폴더 일 경우
-                    File dataFolder = new File(FileMoveManager.TRANSMIT_DATA_FOLDER + "/"
-                            + folderName + "/" + type);
-                    dataFolder.mkdirs();
-                    String dataFilePath = dataFolder.getPath() + "/" + event.context();
-
-                    if (new File(dataFilePath).exists()) {        //동일한 파일이 있는 경우
-                        new File(dataFilePath).renameTo(new File(FileMoveManager.getValidDuplicateFile(new File(dataFilePath))));
-                    }
-
-                    FileMoveManager.moveFileToData(dirPath
-                            + "/" + event.context(), dataFilePath);
                     FileSender transmitSender =
-                            new FileSender(dataFilePath, folderName, true);
+                            new FileSender(dirPath, folderName, event.context().toString(), true);
                     new Thread(transmitSender).start();
                 } else {        //receive 폴더 일 경우
-                    File dataFolder = new File(FileMoveManager.RECEIVE_DATA_FOLDER + "/"
-                            + folderName + "/" + type);
-                    dataFolder.mkdirs();
-                    String dataFilePath = dataFolder.getPath() + "/" +  event.context();
-
-                    if (new File(dataFilePath).exists()) {        //동일한 파일이 있는 경우
-                        new File(dataFilePath).renameTo(new File(FileMoveManager.getValidDuplicateFile(new File(dataFilePath))));
-                    }
-
-                    FileMoveManager.moveFileToData(dirPath + "/"
-                            + event.context(), dataFilePath);
                     FileSender receiveSender =
-                            new FileSender(dataFilePath, folderName, false);
+                            new FileSender(dirPath, folderName, event.context().toString(), false);
                     new Thread(receiveSender).start();
                 }
             }

@@ -126,9 +126,8 @@ public class MainController implements Initializable {
                 new File(dataFilePath).renameTo(new File(FileMoveManager.getValidDuplicateFile(new File(dataFilePath))));
             }
 
-            FileMoveManager.moveFileToData(folderPath + "/" + file.getName(), dataFilePath);
-            FileSender sender = new FileSender(dataFilePath, folderPath, state);
-            sender.run();
+            FileSender sender = new FileSender(folderPath, file.getParentFile().getName(), file.getName(), state);
+            new Thread(sender).start();
         }
     }
 

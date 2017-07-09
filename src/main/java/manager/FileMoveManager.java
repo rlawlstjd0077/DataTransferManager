@@ -12,20 +12,18 @@ import java.nio.file.Paths;
 /**
  * Local 에서 파일을 이동할 때 필요한 기능을 제공하는 클래스
  */
-public class FileMoveManager {
+public class FileMoveManager{
     public static final String RECEIVE_DATA_FOLDER = "Data/Receive/Data";
     public static final String TRANSMIT_DATA_FOLDER = "Data/Transmit/Data";
+    private String originFilePath;
+    private String dataFilePath;
     private static final Logger logger =
             LoggerFactory.getLogger(FileMoveManager.class);
 
     /**
      * Data dir로 파일을 Move 하는 메소드
-     * @param originFilePath : 파일의 원시 주소
-     * @param dataFilePath   : 파일의 이동 주소
      */
-    public static void moveFileToData(
-            final String originFilePath,
-            final String dataFilePath) {
+    public static void moveFileToData(final String originFilePath, final String dataFilePath) {
         try {
             final Path sourcePath = Paths.get(originFilePath);
             final Path targetPath = Paths.get(dataFilePath);
@@ -34,10 +32,8 @@ public class FileMoveManager {
             if (!parentFile.exists()) {
                 parentFile.mkdirs();
             }
+            Files.copy(sourcePath, targetPath);
 
-            Files.move(sourcePath, targetPath);
-
-            
         } catch (IOException e) {
             logger.error("Fail to Move " + new File(originFilePath).getName()
                     + " File in local caused by " + e.toString());

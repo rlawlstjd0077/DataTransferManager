@@ -4,9 +4,17 @@
     <list default="true" id="e63cf9ee-fc04-4321-b977-6a2f7bb3e55e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/manager/FileSender.class" afterPath="$PROJECT_DIR$/build/classes/main/manager/FileSender.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/manager/FolderObserver.class" afterPath="$PROJECT_DIR$/build/classes/main/manager/FolderObserver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ui/Main.class" afterPath="$PROJECT_DIR$/build/classes/main/ui/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ui/MainController.class" afterPath="$PROJECT_DIR$/build/classes/main/ui/MainController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ui/config/AddTargetController.class" afterPath="$PROJECT_DIR$/build/classes/main/ui/config/AddTargetController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ui/config/ConfigController.class" afterPath="$PROJECT_DIR$/build/classes/main/ui/config/ConfigController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ui/config/ModifyController.class" afterPath="$PROJECT_DIR$/build/classes/main/ui/config/ModifyController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ui/setting/SettingController.class" afterPath="$PROJECT_DIR$/build/classes/main/ui/setting/SettingController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/manager/FileMoveManager.java" afterPath="$PROJECT_DIR$/src/main/java/manager/FileMoveManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/manager/FileSender.java" afterPath="$PROJECT_DIR$/src/main/java/manager/FileSender.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/manager/FolderObserver.java" afterPath="$PROJECT_DIR$/src/main/java/manager/FolderObserver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ui/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/ui/MainController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -17,6 +25,11 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/dsm025$Main__1_.coverage" NAME="Main (1) Coverage Results" MODIFIED="1499616300615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ui.*</FILTER>
+    </SUITE>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="ExternalProjectsData">
@@ -49,30 +62,18 @@
       <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ui/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding>
-                <marker date="1499605235196" expanded="true" signature="5715:6112" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SMBClientManager.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/manager/SMBClientManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="836">
-              <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+            <state relative-caret-position="102">
+              <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FTPSClientManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/manager/FTPSClientManager.java">
+      <file leaf-file-name="SMBClientManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/manager/SMBClientManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="22" column="45" lean-forward="true" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="63" />
+            <state relative-caret-position="237">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -81,8 +82,8 @@
       <file leaf-file-name="FolderObserver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/manager/FolderObserver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="60" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="45">
+              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,11 +91,31 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="FileSender.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/manager/FileSender.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="94" column="6" lean-forward="true" selection-start-line="94" selection-start-column="6" selection-end-line="94" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FTPSClientManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/manager/FTPSClientManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="FileMoveManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/manager/FileMoveManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+            <state relative-caret-position="83">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -110,26 +131,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileSender.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/manager/FileSender.java">
+      <file leaf-file-name="Files.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/nio/file/Files.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
-              <caret line="119" column="30" lean-forward="true" selection-start-line="119" selection-start-column="30" selection-end-line="119" selection-end-column="30" />
+            <state relative-caret-position="92">
+              <caret line="2452" column="45" lean-forward="false" selection-start-line="2452" selection-start-column="45" selection-end-line="2452" selection-end-column="45" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TreeBindManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ui/config/TreeBindManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5624">
-              <caret line="306" column="40" lean-forward="false" selection-start-line="306" selection-start-column="40" selection-end-line="306" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#453#454#0" expanded="false" />
-                <element signature="e#490#491#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -155,25 +162,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>es</find>
-      <find>d</find>
-      <find>;</find>
-      <find>l</find>
-      <find>logger.de</find>
-      <find>logger</find>
-      <find>get</find>
-      <find>getC</find>
-      <find>getCause</find>
-      <find>c</find>
-      <find>config</find>
-      <find>configFile</find>
-      <find>CconfigFile</find>
-      <find>ConfconfigFile</find>
-      <find>ConfigconfigFile</find>
-      <find>C</find>
-      <find>Config</find>
-      <find>Config.</find>
-      <find>Config.config</find>
       <find>Config.configF</find>
       <find>Config.configFile</find>
       <find>ge</find>
@@ -185,6 +173,25 @@
       <find>split</find>
       <find>create</find>
       <find>base</find>
+      <find>P</find>
+      <find>Patj</find>
+      <find>Pat</find>
+      <find>Path.</find>
+      <find>Path</find>
+      <find>new a</find>
+      <find>new</find>
+      <find>new Pa</find>
+      <find>new Path</find>
+      <find>new Pat</find>
+      <find>isAccess</find>
+      <find>moveFiles();</find>
+      <find>Created</find>
+      <find>c</find>
+      <find>C</find>
+      <find>data</find>
+      <find>Create</find>
+      <find>cop</find>
+      <find>copy</find>
     </findStrings>
     <replaceStrings>
       <replace>public</replace>
@@ -502,12 +509,12 @@
         <option value="$PROJECT_DIR$/src/main/java/ui/config/TreeBindManager.java" />
         <option value="$PROJECT_DIR$/Data/Log/log-20170619.txt" />
         <option value="$PROJECT_DIR$/src/main/java/manager/JSONManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ui/MainController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/manager/SMBClientManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/manager/FTPSClientManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/manager/FileMoveManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/manager/FolderObserver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/manager/FTPSClientManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ui/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/manager/FileSender.java" />
-        <option value="$PROJECT_DIR$/src/main/java/manager/SMBClientManager.java" />
       </list>
     </option>
   </component>
@@ -577,6 +584,76 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dsm025" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataTransferManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dsm025" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataTransferManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dsm025" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataTransferManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -611,36 +688,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dsm025" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataTransferManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Transmit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="A" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RANGING_DATA_ASCII" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -694,7 +741,7 @@
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="FTPS&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/manager/FTPSClientManager.java&#10;SMB&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/manager/SMBClientManager.java&#10;FolderO&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/manager/FolderObserver.java&#10;FileMove&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/manager/FileMoveManager.java&#10;Main&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/ui/MainController.java&#10;FileSEnd&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/manager/FileSender.java&#10;FileSe&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/manager/FileSender.java&#10;FileSed&#9;null&#9;null&#10;Folder&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/manager/FolderObserver.java&#10;TReB&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/ui/config/TreeBindManager.java&#10;AddTarge&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/ui/config/AddTargetController.java&#10;FileSend&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/manager/FileSender.java&#10;FileMo&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/manager/FileMoveManager.java&#10;Wat&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/data/WatchedList.java&#10;config.&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/Data/Config/config.txt&#10;con&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/Data/Config/config.txt&#10;config&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/Data/Config/config.txt&#10;Config&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/Data/Config/config.txt&#10;Tree&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/ui/config/TreeBindManager.java&#10;MainCon&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/ui/MainController.java&#10;TreeBind&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/ui/config/TreeBindManager.java&#10;ConfigCon&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/ui/config/ConfigController.java" />
+    <property name="SearchEverywhereHistoryKey" value="FileMove&#9;PSI&#9;JAVA://manager.FileMoveManager&#10;MainC&#9;FILE&#9;file://C:/Users/Woo/Desktop/JSW/project/DataTransferManager/src/main/java/ui/MainController.java&#10;FileMo&#9;FILE&#9;file://C:/Users/Woo/Desktop/JSW/project/DataTransferManager/src/main/java/manager/FileMoveManager.java&#10;FileSen&#9;FILE&#9;file://C:/Users/Woo/Desktop/JSW/project/DataTransferManager/src/main/java/manager/FileSender.java&#10;FileSend&#9;FILE&#9;file://C:/Users/Woo/Desktop/JSW/project/DataTransferManager/src/main/java/manager/FileSender.java&#10;Main&#9;FILE&#9;file://C:/Users/Woo/Desktop/JSW/project/DataTransferManager/src/main/java/ui/MainController.java&#10;MainA&#9;PSI&#9;JAVA://sun.awt.AppContext#mainAppContext&#10;FTPS&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/manager/FTPSClientManager.java&#10;SMB&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/manager/SMBClientManager.java&#10;FolderO&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/manager/FolderObserver.java&#10;FileSEnd&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/manager/FileSender.java&#10;FileSe&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/manager/FileSender.java&#10;FileSed&#9;null&#9;null&#10;Folder&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/manager/FolderObserver.java&#10;TReB&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/ui/config/TreeBindManager.java&#10;AddTarge&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/ui/config/AddTargetController.java&#10;Wat&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/data/WatchedList.java&#10;config.&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/Data/Config/config.txt&#10;con&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/Data/Config/config.txt&#10;config&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/Data/Config/config.txt&#10;Config&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/Data/Config/config.txt&#10;Tree&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/ui/config/TreeBindManager.java&#10;MainCon&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/ui/MainController.java&#10;TreeBind&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/ui/config/TreeBindManager.java&#10;ConfigCon&#9;FILE&#9;file://C:/Users/dsm_025/Desktop/DataTransferManager/src/main/java/ui/config/ConfigController.java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -1136,29 +1183,30 @@
       <workItem from="1497852197637" duration="20536000" />
       <workItem from="1498002054068" duration="599000" />
       <workItem from="1498395053904" duration="2830000" />
-      <workItem from="1499605324073" duration="1823000" />
+      <workItem from="1499605324073" duration="10518000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93985000" />
+    <option name="totallyTimeSpent" value="102680000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3601896" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3601896" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3601896" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25036603" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34919474" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1171,35 +1219,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5779221" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42812008" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2164297" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5779221" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25036603" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -1218,59 +1238,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/manager/FileSender.java</url>
-          <line>38</line>
-          <properties />
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/manager/FileSender.java</url>
-          <line>63</line>
+          <line>98</line>
           <properties />
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/manager/FileSender.java</url>
-          <line>49</line>
+          <url>file://$PROJECT_DIR$/src/main/java/ui/MainController.java</url>
+          <line>128</line>
           <properties />
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/manager/FolderObserver.java</url>
-          <line>73</line>
-          <properties />
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/manager/FolderObserver.java</url>
-          <line>77</line>
-          <properties />
-          <option name="timeStamp" value="44" />
+          <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/manager/FileSender.java</url>
-          <line>105</line>
+          <line>47</line>
           <properties />
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/manager/SMBClientManager.java</url>
-          <line>21</line>
-          <properties />
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/manager/FileSender.java</url>
-          <line>108</line>
-          <properties />
-          <option name="timeStamp" value="59" />
+          <option name="timeStamp" value="77" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="60" />
+      <option name="time" value="80" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="FilenameUtils.getBaseName(receive.getSourceDir()).equals(folderName" language="JAVA" />
+        <watch expression="event" language="JAVA" />
+        <watch expression="folderPath" language="JAVA" />
+        <watch expression="file.getName()" language="JAVA" />
         <watch expression="auth" language="JAVA" />
+        <watch expression="!Files.isReadable(Paths.get(dirPath + &quot;/&quot; + event.context()))" language="JAVA" />
         <watch expression="auth" language="JAVA" />
         <watch expression="dataFilePath" language="JAVA" />
         <watch expression="SmbFile copyFile = new SmbFile(copyPath, auth); " language="JAVA" />
@@ -1278,6 +1272,24 @@
         <watch expression="copyFile" language="JAVA" />
         <watch expression="new SmbFile(copyFile.getParent(), auth)" language="JAVA" />
         <watch expression="copyFile.getParent()" language="JAVA" />
+        <watch expression="((AbstractWatchKey.Event) event).kind" language="JAVA" custom="sun.nio.fs.AbstractWatchKey" />
+        <watch expression="watchKey.pollEvents()" language="JAVA" />
+        <watch expression="event.kind()" language="JAVA" />
+        <watch expression="Files.isExecutable(dirPath)" language="JAVA" />
+        <watch expression="dirPath" language="JAVA" />
+        <watch expression="((AbstractWatchKey.Event) event).kind" language="JAVA" custom="sun.nio.fs.AbstractWatchKey" />
+        <watch expression="Files.isReadable(dirPath + &quot;/&quot; + ((AbstractWatchKey.Event) event).context)" language="JAVA" custom="sun.nio.fs.AbstractWatchKey" />
+        <watch expression="((AbstractWatchKey.Event) event).kind" language="JAVA" custom="sun.nio.fs.AbstractWatchKey" />
+        <watch expression="Files.isReadable(Paths.get(dirPath + &quot;/&quot; + event.context()))" language="JAVA" />
+        <watch expression="Files.isReadable(Paths.get(filePath + file.getName()))" language="JAVA" />
+        <watch expression="dataFilePath" language="JAVA" />
+        <watch expression="folderPath" language="JAVA" />
+        <watch expression="FileMoveManager.TRANSMIT_DATA_FOLDER + &quot;/&quot;                     + folderName + &quot;/&quot; + type" language="JAVA" />
+        <watch expression="folderName" language="JAVA" />
+        <watch expression="FileMoveManager.TRANSMIT_DATA_FOLDER + &quot;/&quot;                     + folderName " language="JAVA" />
+        <watch expression="folderPath" language="JAVA" />
+        <watch expression="dataFilePath" language="JAVA" />
+        <watch expression="file.getName()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -1286,13 +1298,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Data/Receive/interface/g/리스너 패턴.txt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/WatchedList.java" />
-    <entry file="file://$PROJECT_DIR$/Data/Transmit/interface/g/리스너 패턴.txt" />
-    <entry file="file://$PROJECT_DIR$/Data/Transmit/interface/fd/리스너 패턴.txt" />
-    <entry file="file://$PROJECT_DIR$/Data/Transmit/interface/es/리스너 패턴.txt" />
-    <entry file="file://$PROJECT_DIR$/Data/Transmit/interface/mp/리스너 패턴.txt" />
-    <entry file="file://$PROJECT_DIR$/Data/Transmit/interface/a/리스너 패턴.txt" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/ui/config/AddTarget.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1417,6 +1422,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1424,26 +1430,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5624">
           <caret line="306" column="40" lean-forward="false" selection-start-line="306" selection-start-column="40" selection-end-line="306" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#453#454#0" expanded="false" />
-            <element signature="e#490#491#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Data/Transmit/Data/A/temp.txt" />
     <entry file="file://$PROJECT_DIR$/transmit/FD/temp.txt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ui/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <marker date="1499605235196" expanded="true" signature="5715:6112" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Data/Receive/Data/G/RANGING_DATA_ASCIItemp.txt" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ui/Main.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1459,40 +1451,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/manager/FTPSClientManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="22" column="45" lean-forward="true" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/manager/FolderObserver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/manager/FileMoveManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/transmit/A/temp.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1513,18 +1471,113 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/manager/FileSender.java">
+    <entry file="file://$PROJECT_DIR$/transmit/A/temp.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="119" column="30" lean-forward="true" selection-start-line="119" selection-start-column="30" selection-end-line="119" selection-end-column="30" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transmit/A/Fight.Club.1999.720p.x264.DTS-Zoom.mkv">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transmit/A/The.Founder.2016.1080p.BluRay.x265.10bit.AC3-NooN.mkv">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="152">
+          <caret line="0" column="4979" lean-forward="true" selection-start-line="0" selection-start-column="4979" selection-end-line="0" selection-end-column="4979" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/nio/file/WatchEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="68" column="17" lean-forward="false" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/awt/AppContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="12" column="47" lean-forward="false" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/nio/file/Files.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="2452" column="45" lean-forward="false" selection-start-line="2452" selection-start-column="45" selection-end-line="2452" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/manager/FTPSClientManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ui/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/manager/SMBClientManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+        <state relative-caret-position="237">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/manager/FolderObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/manager/FileMoveManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/Transmit/Data/A/RANGING_DATA_ASCII/1.mp4">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/manager/FileSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="94" column="6" lean-forward="true" selection-start-line="94" selection-start-column="6" selection-end-line="94" selection-end-column="6" />
           <folding />
         </state>
       </provider>

@@ -1,22 +1,26 @@
 package manager;
 
-import ch.qos.logback.core.util.FileUtil;
 import data.*;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import util.DataType;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.concurrent.ForkJoinPool;
 
 /**
  * 감지된 폴더명과 일치하는 Target 들에게 File을 send 하는 클래스
  */
 public class FileSender implements Runnable {
-    private String filePath;
+    private File file;
+    private String folderPath;
     private String folderName;
+    private String fileName;
     private boolean state;
     private static final Logger logger =
             LoggerFactory.getLogger(FileSender.class);
@@ -24,18 +28,29 @@ public class FileSender implements Runnable {
     /**
      * File Sender 생성자
      *
-     * @param filePath : file Path
+     * @param folderPath   : file Path
      * @param folderName : 폴더 명
      * @param state      : true (transfer), false : (receive)
      */
-    public FileSender(String filePath, String folderName, boolean state) {
-        this.filePath = filePath;
+    public FileSender(String folderPath, String folderName, String fileName, boolean state) {
+        this.folderPath = folderPath;
+        this.file = new File(folderPath);
         this.folderName = folderName;
+        this.fileName = fileName;
         this.state = state;
     }
 
     @Override
     public void run() {
+        moveFiles();
+        sendFiles();
+        try {
+            Files.delete(Paths.get(folderPath + "/" + fileName));
+        } catch (IOException e) {
+        }
+    }
+
+    private void sendFiles() {
         if (state) {          //transfer 일 경우
             ArrayList<Transfer> folderList =
                     Config.getConfigFile().getTransfer();
@@ -55,6 +70,26 @@ public class FileSender implements Runnable {
         }
     }
 
+    private void moveFiles() {
+        DataType type = DataType.fromFilename(file.getName());
+        File dataFolder;
+        if (state) {
+            dataFolder = new File(FileMoveManager.TRANSMIT_DATA_FOLDER + "/"
+                    + folderName + "/" + type);
+        } else {
+            dataFolder = new File(FileMoveManager.RECEIVE_DATA_FOLDER + "/"
+                    + folderName + "/" + type);
+        }
+
+        dataFolder.mkdirs();
+        String dataFilePath = dataFolder.getPath() + "/" + fileName;
+
+        if (new File(dataFilePath).exists()) {        //동일한 파일이 있는 경우
+            new File(dataFilePath).renameTo(new File(FileMoveManager.getValidDuplicateFile(new File(dataFilePath))));
+        }
+        FileMoveManager.moveFileToData(folderPath + "/" + fileName, dataFilePath);
+    }
+
     /**
      * 해당 sourceDir의 target 들에게 file을 send 하는 메소드
      *
@@ -64,7 +99,7 @@ public class FileSender implements Runnable {
         FTPSClientManager ftpsClient = new FTPSClientManager();
         SMBClientManager smbClient = new SMBClientManager();
         int failCount = 0;
-        File file = new File(filePath);
+        File file = new File(folderPath);
 
         for (int i = 0; i < targetList.size(); i++) {
             Target target = targetList.get(i);
