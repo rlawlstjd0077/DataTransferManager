@@ -86,6 +86,7 @@ public class ModifyController extends BorderPane {
                     String path = handleSelectDirectory();
                     chooserText.setText(
                             new File(".").toURI().relativize(new File(path).toURI()).getPath());
+                    chooserText.setText(chooserText.getText().substring(0, chooserText.getText().length() - 1));
                 });
                 break;
             case DATATYPE:

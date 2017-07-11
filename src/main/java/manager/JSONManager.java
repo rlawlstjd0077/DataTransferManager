@@ -10,7 +10,7 @@ import java.io.*;
  * JSON 관련 처리 기능을 담당하는 클래스
  */
 public class JSONManager {
-    private static final String CONFIG_PATH = "Data/Config/config.config";
+    private static final String CONFIG_PATH = "data/Config/config.config";
     /**
      * JsonFile txt 파일을 읽어와 Config 객체로 저장하는 클래스
      * @return

@@ -47,6 +47,7 @@ public class FolderObserver implements Runnable {
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
                 }
+
                 if(!Files.isReadable(Paths.get(dirPath + "/" + event.context()))){
                     continue;
                 }

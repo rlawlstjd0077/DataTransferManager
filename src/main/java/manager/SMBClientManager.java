@@ -45,10 +45,10 @@ public class SMBClientManager {
         String result = "";
         String tmp;
         BufferedReader in = new BufferedReader(new FileReader(file));
-
         while ((tmp = in.readLine()) != null) {
             result += tmp;
         }
+        in.close();
         return result;
     }
 }

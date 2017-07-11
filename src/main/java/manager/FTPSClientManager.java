@@ -44,5 +44,6 @@ public class FTPSClientManager {
         client.rename(remoteTmp, remoteRoot);
         client.logout();
         client.disconnect();
+        input.close();
     }
 }

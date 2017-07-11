@@ -1,9 +1,20 @@
-group 'dsm.025.app'
-version '1.0-SNAPSHOT'
+plugins {
+    id 'java' // or 'groovy' Must be explicitly applied
+    id 'com.github.johnrengelman.shadow' version '1.2.4'
+    id 'net.saliman.cobertura' version '2.3.1'
+}
 
 apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+group 'com.satreci.gsd'
+version '2.0'
 
 sourceCompatibility = 1.8
+
+mainClassName = 'ui.Main'
+def jarName = 'GK2-EDS-SW'
 
 repositories {
     mavenCentral()
@@ -11,10 +22,24 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
     compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
     compile group: 'commons-net', name: 'commons-net', version: '3.1'
     compile group: 'jcifs', name: 'jcifs', version: '1.3.17'
     compile 'com.jfoenix:jfoenix:1.2.0'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.7'
     compile group: 'commons-io', name: 'commons-io', version: '2.4'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Clasaas': mainClassName
+    }
+    archiveName jarName
+    dependsOn configurations.runtime
+}
+
+shadowJar {
+    baseName = jarName
 }

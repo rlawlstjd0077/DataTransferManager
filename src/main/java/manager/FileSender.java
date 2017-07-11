@@ -8,62 +8,55 @@ import util.DataType;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.concurrent.ForkJoinPool;
 
 /**
  * 감지된 폴더명과 일치하는 Target 들에게 File을 send 하는 클래스
  */
 public class FileSender implements Runnable {
-    private File file;
-    private String folderPath;
-    private String folderName;
-    private String fileName;
+    private String filePath; // Local Saved Fila Path
+    private String folderPath; // Monitoring Target File Path
+    private String folderName; // Monitroing Target File Name
+    private String fileName; // Local Saved File Name
     private boolean state;
     private static final Logger logger =
             LoggerFactory.getLogger(FileSender.class);
 
     /**
      * File Sender 생성자
-     *
-     * @param folderPath   : file Path
+     * @param folderPath : 폴더 경로
      * @param folderName : 폴더 명
+     * @param fileName : 복사 대상 파일이름
      * @param state      : true (transfer), false : (receive)
      */
     public FileSender(String folderPath, String folderName, String fileName, boolean state) {
         this.folderPath = folderPath;
-        this.file = new File(folderPath);
         this.folderName = folderName;
         this.fileName = fileName;
         this.state = state;
+        this.filePath = setLocalBackUpFolderPath();
     }
 
     @Override
     public void run() {
         moveFiles();
         sendFiles();
-        try {
-            Files.delete(Paths.get(folderPath + "/" + fileName));
-        } catch (IOException e) {
-        }
     }
 
     private void sendFiles() {
         if (state) {          //transfer 일 경우
-            ArrayList<Transfer> folderList =
-                    Config.getConfigFile().getTransfer();
+            ArrayList<Transfer> folderList = Config.getConfigFile().getTransfer();
             for (Transfer transfer : folderList) {
-                if (FilenameUtils.getBaseName(transfer.getSourceDir()).equals(folderName)) {
+                if (FilenameUtils.getBaseName(transfer.getSourceDir()).equals(folderName) &&
+                        transfer.getDataType().equals(DataType.fromFilename(fileName).toString())) {
                     doSend(transfer.getTarget());
                 }
             }
         } else {              //receive 일 경우
-            ArrayList<Receive> folderList =
-                    Config.getConfigFile().getReceive();
+            ArrayList<Receive> folderList = Config.getConfigFile().getReceive();
             for (Receive receive : folderList) {
-                if (FilenameUtils.getBaseName(receive.getSourceDir()).equals(folderName)) {
+                if (FilenameUtils.getBaseName(receive.getSourceDir()).equals(folderName) &&
+                        receive.getDataType().equals(DataType.fromFilename(fileName).toString())) {
                     doSend(receive.getTarget());
                 }
             }
@@ -71,7 +64,17 @@ public class FileSender implements Runnable {
     }
 
     private void moveFiles() {
-        DataType type = DataType.fromFilename(file.getName());
+        String dataFilePath = setLocalBackUpFolderPath();
+
+        if (new File(dataFilePath).exists()) {        //동일한 파일이 있는 경우
+            new File(dataFilePath).renameTo(new File(FileMoveManager.getValidDuplicateFile(new File(dataFilePath))));
+        }
+        FileMoveManager.moveFileToData(folderPath + "/" + fileName, dataFilePath);
+    }
+
+    private String setLocalBackUpFolderPath() {
+        DataType type = DataType.fromFilename(fileName);
+
         File dataFolder;
         if (state) {
             dataFolder = new File(FileMoveManager.TRANSMIT_DATA_FOLDER + "/"
@@ -80,14 +83,8 @@ public class FileSender implements Runnable {
             dataFolder = new File(FileMoveManager.RECEIVE_DATA_FOLDER + "/"
                     + folderName + "/" + type);
         }
-
         dataFolder.mkdirs();
-        String dataFilePath = dataFolder.getPath() + "/" + fileName;
-
-        if (new File(dataFilePath).exists()) {        //동일한 파일이 있는 경우
-            new File(dataFilePath).renameTo(new File(FileMoveManager.getValidDuplicateFile(new File(dataFilePath))));
-        }
-        FileMoveManager.moveFileToData(folderPath + "/" + fileName, dataFilePath);
+        return dataFolder.getPath() + "/" + fileName;
     }
 
     /**
@@ -99,7 +96,7 @@ public class FileSender implements Runnable {
         FTPSClientManager ftpsClient = new FTPSClientManager();
         SMBClientManager smbClient = new SMBClientManager();
         int failCount = 0;
-        File file = new File(folderPath);
+        File file = new File(filePath);
 
         for (int i = 0; i < targetList.size(); i++) {
             Target target = targetList.get(i);
